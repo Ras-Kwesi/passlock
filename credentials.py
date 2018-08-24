@@ -20,7 +20,7 @@ class Credentials :
 
 
 
-    #def save_passwords(self):
+    def save_passwords(self):
         '''
         appends to our dictionary, with the account as the key and password as value
         '''

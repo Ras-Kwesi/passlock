@@ -21,6 +21,7 @@ class TestCredentials(unittest.TestCase):
         """
 
         self.new_credential = Credentials.credentials_dict["Account"] = "Password"
+        self.new_credential = Credentials.credentials_dict["Acount"] = "Pasword"
         self.new_credential = Credentials.credentials_dict["Twitter"] = "2E22a"
 
 
@@ -33,7 +34,12 @@ class TestCredentials(unittest.TestCase):
         # self.assertEqual(self.new_credential,"2E22a")
 
 
+    def test_save_credential(self):
+        """
+        Test if our dredentials are in the dictionary
+        """
 
+        self.assertEqual(len(Credentials.credentials_dict),3)
 
 
 if __name__ == '__main__':
