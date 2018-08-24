@@ -15,3 +15,16 @@ class Credentials :
 
         self.account_service = account_service
         self.password = password
+
+
+
+
+
+    #def save_passwords(self):
+        '''
+        appends to our dictionary, with the account as the key and password as value
+        '''
+
+
+
+
