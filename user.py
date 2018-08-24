@@ -16,3 +16,12 @@ class User:
         self.last_name = last_name
         self.password = password
         self.email = email
+
+
+    def save_user(self):
+        '''This is a function that appends our
+        user list
+        '''
+
+        User.lockusers.append(self)
+

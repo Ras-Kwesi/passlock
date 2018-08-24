@@ -31,6 +31,16 @@ class TestUser(unittest.TestCase):
 
 
 
+    def test_save_users(self):
+        """
+        test if users are added to the list upon login
+        """
+
+        self.new_user.save_user()
+        self.assertEqual(len(User.lockusers),1)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
