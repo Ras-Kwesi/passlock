@@ -114,6 +114,13 @@ class TestCredentials(unittest.TestCase):
         self.assertTrue(found_credential)
 
 
+    def test_display_credential(self):
+        '''
+        test for the displaying of creentials
+        '''
+
+        self.assertEqual(Credentials.credentials_list,Credentials.show_credentials())
+
 
 
 

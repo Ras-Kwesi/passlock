@@ -79,5 +79,14 @@ class Credentials :
 
         return False
 
+    @classmethod
+    def show_credentials(cls):
+        '''
+        Method that shows the xredentials of the
+        :return:
+        '''
+
+        return cls.credentials_list
+
 
 
