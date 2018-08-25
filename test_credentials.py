@@ -75,7 +75,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list),2)
 
 
-  '''  def test_delete_users(self):
+    def test_delete_users(self):
         """
         Test if we can retrieve a dictionary item from our list of various items
         """
