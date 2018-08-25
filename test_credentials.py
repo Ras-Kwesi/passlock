@@ -88,7 +88,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list), 1)
 
 
-    def test_find_credential_by_account(self):
+    def test_extract_credential_by_account(self):
         '''
         test o see if we can fin our account and password
         '''
@@ -97,8 +97,25 @@ class TestCredentials(unittest.TestCase):
         test_credentials = Credentials("Facebook", "face")
         test_credentials.save_credentials()
 
-        found_credential = Credentials.find_credential("face")
-        self.assertEqual(found_credential.password,test_credentials.password)
+        found_credential = Credentials.extract_credential("Facebook")
+        self.assertEqual(found_credential.account_service,test_credentials.account_service)
+
+
+    def test_find_credential(self):
+        '''
+        test to see if credentials are available and returns true
+        '''
+
+        self.new_credential.save_credentials()
+        test_credentials = Credentials("Facebook", "face")
+        test_credentials.save_credentials()
+
+        found_credential = Credentials.extract_credential("Facebook")
+        self.assertTrue(found_credential)
+
+
+
+
 
 
 if __name__ == '__main__':

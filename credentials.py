@@ -57,18 +57,27 @@ class Credentials :
         Credentials.credentials_list.remove(self)
 
     @classmethod
-    def find_credential(cls,passkey):
+    def extract_credential(cls,passkey):
         '''
         Takes a string and returns the instance
         '''
 
         for credential in cls.credentials_list:
-            if credential.password == passkey:
+            if credential.account_service == passkey:
                 return credential
 
 
     @classmethod
+    def find_credential(cls,passkey):
+        '''
+        method to declare if a credential exists
+        '''
 
+        for credential in cls.credentials_list:
+            if credential.password == passkey:
+                return True
+
+        return False
 
 
 
