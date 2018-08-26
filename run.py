@@ -61,3 +61,42 @@ def display_credentials():
     '''
 
     return Credentials.show_credentials()
+
+def main():
+    print("Hello and Welcome to the Passlocker App, What is your name?")
+    user_name = input()
+
+    print(f"Welcome {user_name}, The key in the following commands to perform the tasks you wish to....")
+
+
+    while True:
+        print('new profile - to create a new profile ---')
+
+        key_strokes = input().lower()
+        if key_strokes == "new profile":
+            print("new Profile")
+
+            print("First name")
+            fname = input()
+
+            print('surname')
+            sname = input()
+
+            print('email')
+            mailer = input()
+
+            print('password')
+            passward = input()
+
+            save_profile(create_profile(fname,sname,mailer,passward)) # Create new instance of user
+
+            print(f'Profile for {fname} {sname} created')
+
+        #
+
+
+
+
+
+if __name__=='__main__':
+    main()
