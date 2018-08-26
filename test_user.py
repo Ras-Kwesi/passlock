@@ -17,7 +17,7 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = User("Kwesi","Makonnen","0712345678","kwest@a.com") # create contact object
+        self.new_user = User("Kwesi","Makonnen","0712345678","kwest@a.com") # create contact test object
 
     def test_init(self):
         '''
@@ -39,6 +39,18 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.lockusers),1)
 
+    def test_delete_users(self):
+        '''
+        Test to see if remove function works
+        '''
+
+        self.new_user.save_user()
+        userexample = User("Kwei","Makonen","072345678","kwst@a.com")
+        userexample.save_user()
+        self.assertEqual(len(User.lockusers),2)
+
+        self.new_user.delete_user()
+        self.assertEqual(len(User.lockusers),1)
 
 
 

@@ -25,6 +25,12 @@ class User:
 
         User.lockusers.append(self)
 
+    def delete_user(self):
+        '''
+        This is to delete a user profile class from our list
+        '''
+
+        User.lockusers.remove(self)
 
 
 
