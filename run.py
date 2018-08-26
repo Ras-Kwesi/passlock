@@ -2,6 +2,7 @@
 
 from user import User
 from credentials import Credentials
+import random
 
 def create_profile(fname,sname,passwad,mail):
     '''
@@ -41,6 +42,14 @@ def save_credential(credentials):
 
     credentials.save_credentials()
 
+
+def del_credential(credentials):
+    '''
+    fuction that deletes a credential
+    '''
+
+    credentials.delete_credentials()
+
 def find_credentials(accounts):
     '''
     function to search for a credential and return a boolean value
@@ -70,10 +79,10 @@ def main():
 
 
     while True:
-        print('new profile - to create a new profile ---')
+        print('new - to create a new profile ---')
 
         key_strokes = input().lower()
-        if key_strokes == "new profile":
+        if key_strokes == "new":
             print("new Profile")
 
             print("First name")
@@ -93,9 +102,48 @@ def main():
             print(f'Profile for {fname} {sname} created')
 
         #
+        while True:
+            print("the following short codes allow you to interact with your account password")
+            print("nac - create a new account password, del - delete an acoount password, dac - display account passwords")
 
+            short_code = input().lower()
+            if short_code == 'nac':
+                print("new Account Password")
 
+                print("Account Service")
+                account_services = input()
 
+                auto_password = random.randint(1000,9999)
+
+                print(f"{auto_password} is youre password for {account_services},")
+
+                save_credential(create_credential(account_services,auto_password)) #save the new acount service password
+
+            elif short_code == 'del':
+                print('enter the account service you want to delete')
+
+                delete_account = input()
+                if find_credentials(delete_account):
+                    remove_account = find_credentials(delete_account)
+                    del_credential(remove_account)
+
+                else:
+                    print(f"{delete_account} not an existing account password")
+            elif  short_code == 'dac':
+
+                if display_credentials():
+                    print("Here is a list of youre accounts")
+                    print("\n")
+
+                    for account in display_credentials():
+                        print(f"{account.account_service} {account.password}")
+                        print('\n')
+
+                else:
+                        print('\n')
+                        print('You have no account passwords')
+
+            elif
 
 
 if __name__=='__main__':
