@@ -34,11 +34,30 @@ def create_credential(account,passwords):
     new_credential = Credentials(account,passwords)
     return new_credential
 
-def save_credentials(credentials)
+def save_credential(credentials):
     '''
     to save user input credentials
     '''
 
     credentials.save_credentials()
 
-def
+def find_credentials(accounts):
+    '''
+    function to search for a credential and return a boolean value
+    '''
+
+    return Credentials.find_credential(accounts)
+
+def extracted_credentials(accounts):
+    '''
+    provides the queried credential
+    '''
+
+    return Credentials.extract_credential(accounts)
+
+def display_credentials():
+    '''
+    Function to show all credentials
+    '''
+
+    return Credentials.show_credentials()
