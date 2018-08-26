@@ -75,11 +75,12 @@ def main():
     print("Hello and Welcome to the Passlocker App, What is your name?")
     user_name = input()
 
-    print(f"Welcome {user_name}, The key in the following commands to perform the tasks you wish to....")
 
 
     while True:
-        print('new - to create a new profile ---')
+        print(f"Welcome {user_name}, The key in the following commands to perform the tasks you wish to....")
+        print('\n')
+        print('new - to create a new profile, by - exit the program')
 
         key_strokes = input().lower()
         if key_strokes == "new":
@@ -100,61 +101,87 @@ def main():
             save_profile(create_profile(fname,sname,mailer,passward)) # Create new instance of user
 
             print(f'Profile for {fname} {sname} created')
+            print('\n')
 
         #
-        while True:
-            print("the following short codes allow you to interact with your account password")
-            print("nac - create a new account password, del - delete an acoount password, dac - display account passwords, fa - query if account exists")
+            while True:
+                print("the following short codes allow you to interact with your account password")
+                print("\n")
+                print("nac - create a new account password, del - delete an acoount password, \n \n dac - display account passwords, fa - query if account exists, ex - exit application")
+                print("\n")
 
-            short_code = input().lower()
-            if short_code == 'nac':
-                print("new Account Password")
+                short_code = input().lower()
+                if short_code == 'nac':
+                    print("new Account Password")
+                    print('\n')
 
-                print("Account Service")
-                account_services = input()
+                    print("Account Service")
+                    account_services = input()
 
-                auto_password = random.randint(1000,9999)
+                    auto_password = random.randint(1000,9999)
 
-                print(f"{auto_password} is youre password for {account_services},")
+                    print('\n')
+                    print(f"{auto_password} is youre password for {account_services},")
+                    print('\n')
 
-                save_credential(create_credential(account_services,auto_password)) #save the new acount service password
+                    save_credential(create_credential(account_services,auto_password)) #save the new acount service password
 
-            elif short_code == 'del':
-                print('enter the account service you want to delete')
+                elif short_code == 'del':
+                    print('enter the account service you want to delete')
+                    print('\n')
 
-                delete_account = input()
-                if extracted_credentials(delete_account):
-                    remove_account = extracted_credentials(delete_account)
-                    del_credential(remove_account)
+                    delete_account = input()
+                    if extracted_credentials(delete_account):
+                        remove_account = extracted_credentials(delete_account)
+                        del_credential(remove_account)
 
-                else:
-                    print(f"{delete_account} not an existing account password")
-            elif  short_code == 'dac':
-
-                if display_credentials():
-                    print("Here is a list of youre accounts")
-                    print("\n")
-
-                    for account in display_credentials():
-                        print(f"{account.account_service} {account.password}")
+                    else:
+                        print(f"{delete_account} not an existing account password")
                         print('\n')
+                elif  short_code == 'dac':
 
+                    if display_credentials():
+                        print("Here is a list of youre accounts")
+                        print("\n")
+
+                        for account in display_credentials():
+                            print(f"{account.account_service} {account.password}")
+                            print('\n')
+
+                    else:
+                            print('\n')
+                            print('You have no account passwords')
+
+                elif short_code == 'fa':
+
+                    print('Key in the account service to know if it is in storage')
+                    print('\n')
+
+                    search_account = input()
+                    if find_credentials(search_account):
+                        queried_account = extracted_credentials(search_account)
+                        print(f"{queried_account.account_service}  {queried_account.password}")
+
+
+                    else:
+                        print('That account service doesnt exist')
+
+
+                elif short_code == "ex":
+                     print("Youre passwords are safe with us, till we crash")
+                     print('\n')
+                     break
                 else:
-                        print('\n')
-                        print('You have no account passwords')
-
-            elif short_code == 'fa':
-
-                print('Key in the account service to know if it is in storage')
-
-                search_account = input()
-                if find_credentials(search_account):
-                    queried_account = extracted_credentials(search_account)
-                    print(f"{queried_account.account_service}  {queried_account.password}")
+                    print("That code doesn't exist yet, Please use whats available")
 
 
-                else:
-                    print('That account service doesnt exist')
+        elif key_strokes == 'by':
+             print("Good bye")
+             break
+
+        else:
+            print("I cant quite register that at the moment, use the above codes")
+
 
 
 if __name__=='__main__':
