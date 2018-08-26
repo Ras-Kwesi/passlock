@@ -18,3 +18,27 @@ def save_profile(user):
     user.save_user()
 
 
+def delete_profile(user):
+    '''
+     function to delete a user profile
+    '''
+
+    user.delete_user()
+
+
+def create_credential(account,passwords):
+    '''
+    Creating an account for the
+    '''
+
+    new_credential = Credentials(account,passwords)
+    return new_credential
+
+def save_credentials(credentials)
+    '''
+    to save user input credentials
+    '''
+
+    credentials.save_credentials()
+
+def
