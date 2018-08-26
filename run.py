@@ -104,7 +104,7 @@ def main():
         #
         while True:
             print("the following short codes allow you to interact with your account password")
-            print("nac - create a new account password, del - delete an acoount password, dac - display account passwords")
+            print("nac - create a new account password, del - delete an acoount password, dac - display account passwords, fa - query if account exists")
 
             short_code = input().lower()
             if short_code == 'nac':
@@ -143,7 +143,18 @@ def main():
                         print('\n')
                         print('You have no account passwords')
 
-            elif
+            elif short_code == 'fa':
+
+                print('Key in the account service to know if it is in storage')
+
+                search_account = input()
+                if find_credentials(search_account):
+                    queried_account = extracted_credentials(search_account)
+                    print(f"{queried_account.account_service}  {queried_account.password}")
+
+
+                else:
+                    print('That contact doesnt exist')
 
 
 if __name__=='__main__':
