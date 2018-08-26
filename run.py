@@ -123,8 +123,8 @@ def main():
                 print('enter the account service you want to delete')
 
                 delete_account = input()
-                if find_credentials(delete_account):
-                    remove_account = find_credentials(delete_account)
+                if extracted_credentials(delete_account):
+                    remove_account = extracted_credentials(delete_account)
                     del_credential(remove_account)
 
                 else:
@@ -154,7 +154,7 @@ def main():
 
 
                 else:
-                    print('That contact doesnt exist')
+                    print('That account service doesnt exist')
 
 
 if __name__=='__main__':
