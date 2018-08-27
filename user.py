@@ -1,3 +1,5 @@
+from credentials import Credentials
+
 class User:
     '''This will serve as our
     class for user instances'''
@@ -31,6 +33,8 @@ class User:
         '''
 
         User.lockusers.remove(self)
+
+
 
 
 
